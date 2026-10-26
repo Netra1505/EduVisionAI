@@ -1,0 +1,72 @@
+[
+  {
+    "question": "Complete the lecture statement: apply minimax game theory in AI first of all we have to know what is minimax ________ it is a",
+    "answer": "algorithm",
+    "start": 0.0,
+    "concept": "algorithm",
+    "source_text": "apply minimax game theory in AI first of all we have to know what is minimax algorithm it is a"
+  },
+  {
+    "question": "Complete the lecture statement: ________ algorithm so it is a searching algorithm why it is used for decision making in two player",
+    "answer": "searching",
+    "start": 5.04,
+    "concept": "searching",
+    "source_text": "searching algorithm so it is a searching algorithm why it is used for decision making in two player"
+  },
+  {
+    "question": "Complete the lecture statement: game for ________ making in two player game for decision making in two player game one player",
+    "answer": "decision",
+    "start": 15.14,
+    "concept": "decision",
+    "source_text": "game for decision making in two player game for decision making in two player game one player"
+  },
+  {
+    "question": "Complete the lecture statement: is called max and ________ bear is called mean max player and mean player there are two player one is",
+    "answer": "another",
+    "start": 26.58,
+    "concept": "another",
+    "source_text": "is called max and another bear is called mean max player and mean player there are two player one is"
+  },
+  {
+    "question": "Complete the lecture statement: max another is mean max tries to get maximum ________ score maximum possible score mean tries to",
+    "answer": "possible",
+    "start": 33.94,
+    "concept": "possible",
+    "source_text": "max another is mean max tries to get maximum possible score maximum possible score mean tries to"
+  },
+  {
+    "question": "Complete the lecture statement: get minimum ________ score one max is tries to get maximum and mean tries to get minimum possible",
+    "answer": "possible",
+    "start": 50.56,
+    "concept": "possible",
+    "source_text": "get minimum possible score one max is tries to get maximum and mean tries to get minimum possible"
+  },
+  {
+    "question": "Complete the lecture statement: score let us ________ the example first one is the level for max second one is the level for mean",
+    "answer": "consider",
+    "start": 67.7,
+    "concept": "consider",
+    "source_text": "score let us consider the example first one is the level for max second one is the level for mean"
+  },
+  {
+    "question": "Complete the lecture statement: ________ one is the level for max and last one is the leap node so no need to make it a level",
+    "answer": "third",
+    "start": 75.94,
+    "concept": "third",
+    "source_text": "third one is the level for max and last one is the leap node so no need to make it a level"
+  },
+  {
+    "question": "Complete the lecture statement: or max for mean it is a leap node ________ with from the max leap to from the leap node leap node",
+    "answer": "start",
+    "start": 82.42,
+    "concept": "start",
+    "source_text": "or max for mean it is a leap node start with from the max leap to from the leap node leap node"
+  },
+  {
+    "question": "Complete the lecture statement: leap node this and the max of two and ________ max of two and three is three max of five and nine is nine",
+    "answer": "three",
+    "start": 89.7,
+    "concept": "three",
+    "source_text": "leap node this and the max of two and three max of two and three is three max of five and nine is nine"
+  }
+]

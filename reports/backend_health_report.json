@@ -1,0 +1,25 @@
+{
+  "project": "EduVision AI",
+  "checks": {
+    "app.database": "PASS",
+    "app.services.ingestion_service": "PASS",
+    "app.services.transcription_service": "PASS",
+    "app.services.search_service": "PASS",
+    "app.services.whiteboard_service": "PASS",
+    "app.services.concept_service": "PASS",
+    "app.services.quiz_service": "PASS",
+    "app.services.quiz_attempt_service": "PASS",
+    "app.services.analytics_service": "PASS",
+    "app.services.diarization_service": "PASS",
+    "app.services.code_service": "PASS",
+    "app.services.pipeline_service": "PASS",
+    "app/main.py": "PASS",
+    "app/config.py": "PASS",
+    "app/database.py": "PASS",
+    "data/uploads/a49ef79fd3d9.mp4": "PASS"
+  },
+  "pytest": {
+    "return_code": 0,
+    "output": "........                                                                 [100%]\n8 passed in 0.04s"
+  }
+}

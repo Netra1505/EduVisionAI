@@ -1,0 +1,11 @@
+{
+  "video": "a49ef79fd3d9.mp4",
+  "language": "en",
+  "duration_seconds": 76.03,
+  "transcript_segments": 15,
+  "faiss_vectors": 15,
+  "embedding_dimensions": 384,
+  "sampled_frames": 16,
+  "speaker_labels": "Unknown; diarization not run",
+  "completed": true
+}

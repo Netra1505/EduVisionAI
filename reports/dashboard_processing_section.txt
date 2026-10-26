@@ -1,0 +1,81 @@
+    tmp = DIRS["reports"] / f"code_{uuid.uuid4().hex}.py"
+    try:
+        tmp.write_text(code, encoding="utf-8")
+        result = subprocess.run(
+            [sys.executable, "-I", str(tmp)],
+            capture_output=True, text=True, timeout=5,
+            cwd=str(DIRS["reports"]),
+            env={"PATH": os.environ.get("PATH", "")},
+        )
+        return result.stdout[-5000:], result.stderr[-5000:]
+    except subprocess.TimeoutExpired:
+        return "", "Execution timed out after 5 seconds."
+    except Exception as exc:
+        return "", str(exc)
+    finally:
+        tmp.unlink(missing_ok=True)
+
+def process_lecture(lecture):
+    lecture_id = lecture["lecture_id"]
+    audio_path = DIRS["audio"] / f"{lecture_id}.wav"
+    transcript_path = DIRS["transcripts"] / f"{lecture_id}.json"
+
+    lecture["status"] = "extracting_audio"
+    write_json(lecture_path(lecture_id), lecture)
+    extract_audio(lecture["video_path"], audio_path)
+
+    lecture["status"] = "transcribing"
+    write_json(lecture_path(lecture_id), lecture)
+    transcript, language = transcribe(audio_path)
+    transcript, diarization_status = diarize_if_configured(
+        audio_path, transcript
+    )
+    write_json(transcript_path, transcript)
+
+    lecture["status"] = "indexing"
+    write_json(lecture_path(lecture_id), lecture)
+    build_search_index(lecture_id, transcript)
+
+    lecture["status"] = "extracting_whiteboards"
+    write_json(lecture_path(lecture_id), lecture)
+    boards, duration = extract_whiteboards(
+        lecture_id, lecture["video_path"]
+    )
+    graph, graph_data = make_concept_graph(lecture_id, transcript)
+    quiz = generate_quiz(lecture_id, transcript)
+
+    lecture.update({
+        "status": "ready",
+        "language": language,
+        "duration_seconds": round(duration, 2),
+        "transcript_segments": len(transcript),
+        "whiteboard_items": len(boards),
+        "concept_count": len(graph_data["nodes"]),
+        "quiz_questions": len(quiz),
+        "diarization_status": diarization_status,
+        "processed_at": datetime.now().isoformat(timespec="seconds"),
+    })
+    write_json(lecture_path(lecture_id), lecture)
+    return lecture
+
+# ------------------------- User interface -------------------------
+
+st.title("🎓 EduVision AI")
+st.caption("Video-grounded lecture intelligence and personalized learning")
+
+with st.sidebar:
+    st.header("Project status")
+    st.write("Transcription: faster-whisper")
+    st.write("Semantic search: Sentence Transformers + FAISS")
+    st.write("Frames and OCR: OpenCV + Tesseract")
+    st.write("Concepts: NetworkX")
+    st.write("Storage: local JSON, images, and FAISS indexes")
+    st.warning(
+        "Local prototype. Code execution is not isolated securely; "
+        "only run code you trust."
+    )
+
+st.header("1. Upload a lecture")
+upload = st.file_uploader(
+    "Choose a lecture video",
+    type=["mp4", "mov", "mkv", "webm"],

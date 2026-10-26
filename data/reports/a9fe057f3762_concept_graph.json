@@ -1,0 +1,326 @@
+{
+  "nodes": [
+    {
+      "id": "agent",
+      "frequency": 12
+    },
+    {
+      "id": "sensors",
+      "frequency": 6
+    },
+    {
+      "id": "how",
+      "frequency": 6
+    },
+    {
+      "id": "its",
+      "frequency": 6
+    },
+    {
+      "id": "like",
+      "frequency": 6
+    },
+    {
+      "id": "performance",
+      "frequency": 5
+    },
+    {
+      "id": "environment",
+      "frequency": 4
+    },
+    {
+      "id": "actuators",
+      "frequency": 4
+    },
+    {
+      "id": "works",
+      "frequency": 4
+    },
+    {
+      "id": "means",
+      "frequency": 4
+    },
+    {
+      "id": "help",
+      "frequency": 4
+    },
+    {
+      "id": "what",
+      "frequency": 4
+    },
+    {
+      "id": "stands",
+      "frequency": 3
+    },
+    {
+      "id": "used",
+      "frequency": 2
+    },
+    {
+      "id": "describe",
+      "frequency": 2
+    }
+  ],
+  "edges": [
+    {
+      "source": "agent",
+      "target": "works",
+      "weight": 4
+    },
+    {
+      "source": "agent",
+      "target": "used",
+      "weight": 2
+    },
+    {
+      "source": "agent",
+      "target": "describe",
+      "weight": 2
+    },
+    {
+      "source": "agent",
+      "target": "how",
+      "weight": 6
+    },
+    {
+      "source": "agent",
+      "target": "its",
+      "weight": 4
+    },
+    {
+      "source": "agent",
+      "target": "like",
+      "weight": 6
+    },
+    {
+      "source": "agent",
+      "target": "performance",
+      "weight": 2
+    },
+    {
+      "source": "agent",
+      "target": "means",
+      "weight": 4
+    },
+    {
+      "source": "agent",
+      "target": "environment",
+      "weight": 2
+    },
+    {
+      "source": "agent",
+      "target": "actuators",
+      "weight": 2
+    },
+    {
+      "source": "agent",
+      "target": "help",
+      "weight": 4
+    },
+    {
+      "source": "agent",
+      "target": "sensors",
+      "weight": 2
+    },
+    {
+      "source": "agent",
+      "target": "what",
+      "weight": 4
+    },
+    {
+      "source": "sensors",
+      "target": "stands",
+      "weight": 2
+    },
+    {
+      "source": "sensors",
+      "target": "performance",
+      "weight": 2
+    },
+    {
+      "source": "sensors",
+      "target": "environment",
+      "weight": 2
+    },
+    {
+      "source": "sensors",
+      "target": "actuators",
+      "weight": 2
+    },
+    {
+      "source": "sensors",
+      "target": "what",
+      "weight": 2
+    },
+    {
+      "source": "sensors",
+      "target": "like",
+      "weight": 2
+    },
+    {
+      "source": "sensors",
+      "target": "help",
+      "weight": 2
+    },
+    {
+      "source": "how",
+      "target": "describe",
+      "weight": 2
+    },
+    {
+      "source": "how",
+      "target": "works",
+      "weight": 2
+    },
+    {
+      "source": "how",
+      "target": "used",
+      "weight": 2
+    },
+    {
+      "source": "how",
+      "target": "its",
+      "weight": 4
+    },
+    {
+      "source": "how",
+      "target": "like",
+      "weight": 2
+    },
+    {
+      "source": "how",
+      "target": "performance",
+      "weight": 2
+    },
+    {
+      "source": "how",
+      "target": "means",
+      "weight": 2
+    },
+    {
+      "source": "how",
+      "target": "what",
+      "weight": 2
+    },
+    {
+      "source": "its",
+      "target": "like",
+      "weight": 2
+    },
+    {
+      "source": "its",
+      "target": "performance",
+      "weight": 2
+    },
+    {
+      "source": "its",
+      "target": "means",
+      "weight": 2
+    },
+    {
+      "source": "its",
+      "target": "what",
+      "weight": 2
+    },
+    {
+      "source": "like",
+      "target": "performance",
+      "weight": 2
+    },
+    {
+      "source": "like",
+      "target": "means",
+      "weight": 2
+    },
+    {
+      "source": "like",
+      "target": "actuators",
+      "weight": 2
+    },
+    {
+      "source": "like",
+      "target": "help",
+      "weight": 4
+    },
+    {
+      "source": "like",
+      "target": "what",
+      "weight": 2
+    },
+    {
+      "source": "performance",
+      "target": "stands",
+      "weight": 3
+    },
+    {
+      "source": "performance",
+      "target": "environment",
+      "weight": 2
+    },
+    {
+      "source": "performance",
+      "target": "actuators",
+      "weight": 2
+    },
+    {
+      "source": "performance",
+      "target": "means",
+      "weight": 2
+    },
+    {
+      "source": "environment",
+      "target": "stands",
+      "weight": 2
+    },
+    {
+      "source": "environment",
+      "target": "actuators",
+      "weight": 2
+    },
+    {
+      "source": "environment",
+      "target": "means",
+      "weight": 2
+    },
+    {
+      "source": "environment",
+      "target": "works",
+      "weight": 2
+    },
+    {
+      "source": "actuators",
+      "target": "stands",
+      "weight": 2
+    },
+    {
+      "source": "actuators",
+      "target": "help",
+      "weight": 2
+    },
+    {
+      "source": "works",
+      "target": "used",
+      "weight": 2
+    },
+    {
+      "source": "works",
+      "target": "describe",
+      "weight": 2
+    },
+    {
+      "source": "works",
+      "target": "means",
+      "weight": 2
+    },
+    {
+      "source": "help",
+      "target": "what",
+      "weight": 2
+    },
+    {
+      "source": "used",
+      "target": "describe",
+      "weight": 2
+    }
+  ]
+}

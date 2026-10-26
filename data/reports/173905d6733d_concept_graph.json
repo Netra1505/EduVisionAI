@@ -1,0 +1,371 @@
+{
+  "nodes": [
+    {
+      "id": "max",
+      "frequency": 20
+    },
+    {
+      "id": "two",
+      "frequency": 11
+    },
+    {
+      "id": "one",
+      "frequency": 9
+    },
+    {
+      "id": "mean",
+      "frequency": 8
+    },
+    {
+      "id": "player",
+      "frequency": 7
+    },
+    {
+      "id": "three",
+      "frequency": 7
+    },
+    {
+      "id": "minimum",
+      "frequency": 6
+    },
+    {
+      "id": "level",
+      "frequency": 6
+    },
+    {
+      "id": "leap",
+      "frequency": 6
+    },
+    {
+      "id": "game",
+      "frequency": 5
+    },
+    {
+      "id": "node",
+      "frequency": 5
+    },
+    {
+      "id": "zero",
+      "frequency": 5
+    },
+    {
+      "id": "algorithm",
+      "frequency": 4
+    },
+    {
+      "id": "tries",
+      "frequency": 4
+    },
+    {
+      "id": "get",
+      "frequency": 4
+    }
+  ],
+  "edges": [
+    {
+      "source": "max",
+      "target": "player",
+      "weight": 1
+    },
+    {
+      "source": "max",
+      "target": "mean",
+      "weight": 6
+    },
+    {
+      "source": "max",
+      "target": "two",
+      "weight": 4
+    },
+    {
+      "source": "max",
+      "target": "one",
+      "weight": 5
+    },
+    {
+      "source": "max",
+      "target": "get",
+      "weight": 2
+    },
+    {
+      "source": "max",
+      "target": "tries",
+      "weight": 2
+    },
+    {
+      "source": "max",
+      "target": "minimum",
+      "weight": 2
+    },
+    {
+      "source": "max",
+      "target": "level",
+      "weight": 3
+    },
+    {
+      "source": "max",
+      "target": "node",
+      "weight": 3
+    },
+    {
+      "source": "max",
+      "target": "leap",
+      "weight": 3
+    },
+    {
+      "source": "max",
+      "target": "three",
+      "weight": 2
+    },
+    {
+      "source": "max",
+      "target": "zero",
+      "weight": 2
+    },
+    {
+      "source": "max",
+      "target": "algorithm",
+      "weight": 1
+    },
+    {
+      "source": "max",
+      "target": "game",
+      "weight": 1
+    },
+    {
+      "source": "two",
+      "target": "player",
+      "weight": 3
+    },
+    {
+      "source": "two",
+      "target": "algorithm",
+      "weight": 1
+    },
+    {
+      "source": "two",
+      "target": "one",
+      "weight": 3
+    },
+    {
+      "source": "two",
+      "target": "game",
+      "weight": 1
+    },
+    {
+      "source": "two",
+      "target": "mean",
+      "weight": 1
+    },
+    {
+      "source": "two",
+      "target": "three",
+      "weight": 2
+    },
+    {
+      "source": "two",
+      "target": "node",
+      "weight": 1
+    },
+    {
+      "source": "two",
+      "target": "leap",
+      "weight": 1
+    },
+    {
+      "source": "two",
+      "target": "zero",
+      "weight": 2
+    },
+    {
+      "source": "two",
+      "target": "minimum",
+      "weight": 1
+    },
+    {
+      "source": "two",
+      "target": "level",
+      "weight": 1
+    },
+    {
+      "source": "one",
+      "target": "player",
+      "weight": 2
+    },
+    {
+      "source": "one",
+      "target": "game",
+      "weight": 1
+    },
+    {
+      "source": "one",
+      "target": "mean",
+      "weight": 3
+    },
+    {
+      "source": "one",
+      "target": "minimum",
+      "weight": 2
+    },
+    {
+      "source": "one",
+      "target": "tries",
+      "weight": 1
+    },
+    {
+      "source": "one",
+      "target": "get",
+      "weight": 1
+    },
+    {
+      "source": "one",
+      "target": "level",
+      "weight": 3
+    },
+    {
+      "source": "one",
+      "target": "node",
+      "weight": 1
+    },
+    {
+      "source": "one",
+      "target": "leap",
+      "weight": 1
+    },
+    {
+      "source": "one",
+      "target": "zero",
+      "weight": 2
+    },
+    {
+      "source": "one",
+      "target": "three",
+      "weight": 1
+    },
+    {
+      "source": "mean",
+      "target": "player",
+      "weight": 1
+    },
+    {
+      "source": "mean",
+      "target": "tries",
+      "weight": 2
+    },
+    {
+      "source": "mean",
+      "target": "get",
+      "weight": 2
+    },
+    {
+      "source": "mean",
+      "target": "minimum",
+      "weight": 1
+    },
+    {
+      "source": "mean",
+      "target": "level",
+      "weight": 1
+    },
+    {
+      "source": "mean",
+      "target": "leap",
+      "weight": 1
+    },
+    {
+      "source": "mean",
+      "target": "node",
+      "weight": 1
+    },
+    {
+      "source": "mean",
+      "target": "algorithm",
+      "weight": 1
+    },
+    {
+      "source": "player",
+      "target": "algorithm",
+      "weight": 1
+    },
+    {
+      "source": "player",
+      "target": "game",
+      "weight": 1
+    },
+    {
+      "source": "three",
+      "target": "node",
+      "weight": 1
+    },
+    {
+      "source": "three",
+      "target": "leap",
+      "weight": 1
+    },
+    {
+      "source": "three",
+      "target": "zero",
+      "weight": 2
+    },
+    {
+      "source": "three",
+      "target": "minimum",
+      "weight": 2
+    },
+    {
+      "source": "three",
+      "target": "level",
+      "weight": 2
+    },
+    {
+      "source": "minimum",
+      "target": "tries",
+      "weight": 1
+    },
+    {
+      "source": "minimum",
+      "target": "get",
+      "weight": 1
+    },
+    {
+      "source": "minimum",
+      "target": "zero",
+      "weight": 2
+    },
+    {
+      "source": "minimum",
+      "target": "level",
+      "weight": 2
+    },
+    {
+      "source": "level",
+      "target": "node",
+      "weight": 1
+    },
+    {
+      "source": "level",
+      "target": "leap",
+      "weight": 1
+    },
+    {
+      "source": "level",
+      "target": "zero",
+      "weight": 2
+    },
+    {
+      "source": "leap",
+      "target": "node",
+      "weight": 3
+    },
+    {
+      "source": "game",
+      "target": "algorithm",
+      "weight": 1
+    },
+    {
+      "source": "tries",
+      "target": "get",
+      "weight": 2
+    }
+  ]
+}

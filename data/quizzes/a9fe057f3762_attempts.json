@@ -1,0 +1,130 @@
+[
+  {
+    "concept": "performance",
+    "given_answer": "Performance",
+    "correct_answer": "performance",
+    "correct": true,
+    "timestamp": "2026-10-26T16:45:19",
+    "source_start": 0.0
+  },
+  {
+    "concept": "intelligent",
+    "given_answer": "",
+    "correct_answer": "intelligent",
+    "correct": false,
+    "timestamp": "2026-10-26T16:45:19",
+    "source_start": 4.0
+  },
+  {
+    "concept": "performance",
+    "given_answer": "",
+    "correct_answer": "Performance",
+    "correct": false,
+    "timestamp": "2026-10-26T16:45:19",
+    "source_start": 7.0
+  },
+  {
+    "concept": "environment",
+    "given_answer": "",
+    "correct_answer": "Environment",
+    "correct": false,
+    "timestamp": "2026-10-26T16:45:19",
+    "source_start": 13.0
+  },
+  {
+    "concept": "actuators",
+    "given_answer": "",
+    "correct_answer": "Actuators",
+    "correct": false,
+    "timestamp": "2026-10-26T16:45:19",
+    "source_start": 18.0
+  },
+  {
+    "concept": "microphones",
+    "given_answer": "",
+    "correct_answer": "microphones",
+    "correct": false,
+    "timestamp": "2026-10-26T16:45:19",
+    "source_start": 24.0
+  },
+  {
+    "concept": "together",
+    "given_answer": "",
+    "correct_answer": "Together",
+    "correct": false,
+    "timestamp": "2026-10-26T16:45:19",
+    "source_start": 31.0
+  },
+  {
+    "concept": "performance",
+    "given_answer": "",
+    "correct_answer": "performance",
+    "correct": false,
+    "timestamp": "2026-10-26T16:45:19",
+    "source_start": 37.0
+  },
+  {
+    "concept": "performance",
+    "given_answer": "Performance",
+    "correct_answer": "performance",
+    "correct": true,
+    "timestamp": "2026-10-26T16:45:24",
+    "source_start": 0.0
+  },
+  {
+    "concept": "intelligent",
+    "given_answer": "",
+    "correct_answer": "intelligent",
+    "correct": false,
+    "timestamp": "2026-10-26T16:45:24",
+    "source_start": 4.0
+  },
+  {
+    "concept": "performance",
+    "given_answer": "",
+    "correct_answer": "Performance",
+    "correct": false,
+    "timestamp": "2026-10-26T16:45:24",
+    "source_start": 7.0
+  },
+  {
+    "concept": "environment",
+    "given_answer": "",
+    "correct_answer": "Environment",
+    "correct": false,
+    "timestamp": "2026-10-26T16:45:24",
+    "source_start": 13.0
+  },
+  {
+    "concept": "actuators",
+    "given_answer": "",
+    "correct_answer": "Actuators",
+    "correct": false,
+    "timestamp": "2026-10-26T16:45:24",
+    "source_start": 18.0
+  },
+  {
+    "concept": "microphones",
+    "given_answer": "",
+    "correct_answer": "microphones",
+    "correct": false,
+    "timestamp": "2026-10-26T16:45:24",
+    "source_start": 24.0
+  },
+  {
+    "concept": "together",
+    "given_answer": "",
+    "correct_answer": "Together",
+    "correct": false,
+    "timestamp": "2026-10-26T16:45:24",
+    "source_start": 31.0
+  },
+  {
+    "concept": "performance",
+    "given_answer": "",
+    "correct_answer": "performance",
+    "correct": false,
+    "timestamp": "2026-10-26T16:45:24",
+    "source_start": 37.0
+  }
+]

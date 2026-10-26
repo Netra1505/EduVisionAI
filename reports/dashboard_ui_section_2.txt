@@ -1,0 +1,155 @@
+
+with tab_board:
+    st.subheader("Extracted frames and equation/text OCR")
+    st.caption(
+        "Frames are sampled every 5 seconds. OCR reads visible printed or "
+        "handwritten text imperfectly; mathematical notation may need correction."
+    )
+    if board_records:
+        for item in board_records:
+            with st.expander(
+                f"Frame at {timestamp(item['timestamp'])} "
+                f"— {'Text detected' if item.get('text') else 'No text detected'}"
+            ):
+                image_path = Path(item["image_path"])
+                if image_path.is_file():
+                    st.image(str(image_path), use_container_width=True)
+                st.write(item.get("text") or "No readable text detected.")
+    else:
+        st.info("Process the lecture to sample frames and run OCR.")
+
+with tab_code:
+    st.subheader("Whiteboard-to-code lab")
+    board_texts = [
+        item.get("text", "") for item in board_records if item.get("text")
+    ]
+    if board_texts:
+        selected_board = st.selectbox(
+            "Choose extracted whiteboard text",
+            range(len(board_texts)),
+            format_func=lambda i: board_texts[i][:100],
+        )
+        source_text = board_texts[selected_board]
+    else:
+        source_text = ""
+
+    st.write("Use extracted text as a starting point, then review the code.")
+    default_code = (
+        "# Starter example based on the lecture's whiteboard text\n"
+        "# Verify the algorithm and fill in missing details before running.\n\n"
+        f"# Whiteboard text: {source_text[:300]!r}\n\n"
+        "def solve(values):\n"
+        "    # TODO: implement the algorithm described in the lecture\n"
+        "    return values\n\n"
+        "if __name__ == '__main__':\n"
+        "    print(solve([1, 2, 3]))\n"
+    )
+    code = st.text_area(
+        "Python code editor",
+        value=default_code,
+        height=300,
+        key=f"code_editor_{lecture_id}",
+    )
+    st.warning(
+        "Prototype warning: execution uses a subprocess with a timeout, "
+        "not an OS-level security sandbox. Run only code you trust."
+    )
+    if st.button("Run Python code"):
+        stdout, stderr = run_code(code)
+        if stdout:
+            st.markdown("**Output**")
+            st.code(stdout)
+        if stderr:
+            st.markdown("**Errors / diagnostics**")
+            st.code(stderr)
+        if not stdout and not stderr:
+            st.info("Program completed with no printed output.")
+        if stderr:
+            st.caption(
+                "Use the error message to correct your code, then run it again. "
+                "Automatic AI repair is not enabled in this local version."
+            )
+
+with tab_graph:
+    st.subheader("Lecture concept graph")
+    graph_path = DIRS["reports"] / f"{lecture_id}_concept_graph.json"
+    graph_data = read_json(graph_path, {"nodes": [], "edges": []})
+    if graph_data["nodes"]:
+        st.graphviz_chart(
+            "graph EduVision { "
+            + " ".join(
+                f'"{n["id"]}" [label="{n["id"]}\\nfrequency {n["frequency"]}"];'
+                for n in graph_data["nodes"]
+            )
+            + " "
+            + " ".join(
+                f'"{e["source"]}" -- "{e["target"]}" [label="{e["weight"]}"];'
+                for e in graph_data["edges"]
+            )
+            + " }"
+        )
+        st.caption(
+            "This first graph is based on frequent words co-occurring in transcript "
+            "segments. It is a useful starting point, not a validated ontology."
+        )
+    else:
+        st.info("Process the lecture to build its concept graph.")
+
+with tab_quiz:
+    st.subheader("Dynamic transcript-based quiz")
+    st.caption(
+        "Questions are generated from actual transcript sentences. "
+        "Review the source before treating a generated question as authoritative."
+    )
+    if quiz_questions:
+        attempts = load_attempts(lecture_id)
+        with st.form(f"quiz_{lecture_id}"):
+            answers = {}
+            for i, question in enumerate(quiz_questions):
+                st.markdown(f"**Q{i + 1}.** {question['question']}")
+                answers[str(i)] = st.text_input(
+                    "Your answer", key=f"answer_{lecture_id}_{i}"
+                )
+            submitted = st.form_submit_button("Submit quiz")
+        if submitted:
+            new_attempts = []
+            for i, question in enumerate(quiz_questions):
+                given = answers[str(i)].strip()
+                correct = given.casefold() == question["answer"].casefold()
+                new_attempts.append({
+                    "concept": question["concept"],
+                    "given_answer": given,
+                    "correct_answer": question["answer"],
+                    "correct": correct,
+                    "timestamp": datetime.now().isoformat(timespec="seconds"),
+                    "source_start": question["start"],
+                })
+            attempts.extend(new_attempts)
+            save_attempts(lecture_id, attempts)
+            score = sum(x["correct"] for x in new_attempts)
+            st.success(f"Score: {score}/{len(new_attempts)}")
+            st.rerun()
+    else:
+        st.info("Process the lecture to generate quiz questions.")
+
+with tab_analytics:
+    st.subheader("Learning analytics and weak concepts")
+    weak = weak_concepts(lecture_id)
+    if weak:
+        st.dataframe(pd.DataFrame(weak), use_container_width=True)
+        st.bar_chart(pd.DataFrame(weak).set_index("concept")["accuracy"])
+        st.caption(
+            "Weak concepts are estimated from recorded quiz attempts. "
+            "More attempts improve the usefulness of this estimate."
+        )
+    else:
+        st.info("Submit a quiz to begin tracking concept-level performance.")
+
+    st.subheader("Processing report")
+    st.json(lecture)
+
+st.divider()
+st.caption(
+    "EduVision AI | Local prototype | Results depend on video quality, "
+    "audio clarity, OCR quality, and model performance."
+)

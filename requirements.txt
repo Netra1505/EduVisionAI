@@ -1,0 +1,13 @@
+streamlit
+faster-whisper
+sentence-transformers
+faiss-cpu
+opencv-python-headless
+pytesseract
+networkx
+plotly
+pandas
+numpy
+pillow
+python-dotenv
+pytest

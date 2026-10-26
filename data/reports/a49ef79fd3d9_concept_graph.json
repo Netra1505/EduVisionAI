@@ -1,0 +1,578 @@
+{
+  "lecture_id": "a49ef79fd3d9",
+  "method": "word frequency and co-occurrence; candidate concepts, not verified ontology",
+  "nodes": [
+    {
+      "id": "agent",
+      "frequency": 12,
+      "first_seen_seconds": 4.0
+    },
+    {
+      "id": "sensors",
+      "frequency": 6,
+      "first_seen_seconds": 0.0
+    },
+    {
+      "id": "like",
+      "frequency": 6,
+      "first_seen_seconds": 7.0
+    },
+    {
+      "id": "performance",
+      "frequency": 5,
+      "first_seen_seconds": 0.0
+    },
+    {
+      "id": "environment",
+      "frequency": 4,
+      "first_seen_seconds": 0.0
+    },
+    {
+      "id": "actuators",
+      "frequency": 4,
+      "first_seen_seconds": 0.0
+    },
+    {
+      "id": "works",
+      "frequency": 4,
+      "first_seen_seconds": 4.0
+    },
+    {
+      "id": "means",
+      "frequency": 4,
+      "first_seen_seconds": 7.0
+    },
+    {
+      "id": "help",
+      "frequency": 4,
+      "first_seen_seconds": 18.0
+    },
+    {
+      "id": "stands",
+      "frequency": 3,
+      "first_seen_seconds": 0.0
+    },
+    {
+      "id": "describe",
+      "frequency": 2,
+      "first_seen_seconds": 4.0
+    },
+    {
+      "id": "intelligent",
+      "frequency": 2,
+      "first_seen_seconds": 4.0
+    },
+    {
+      "id": "check",
+      "frequency": 2,
+      "first_seen_seconds": 7.0
+    },
+    {
+      "id": "doing",
+      "frequency": 2,
+      "first_seen_seconds": 7.0
+    },
+    {
+      "id": "job",
+      "frequency": 2,
+      "first_seen_seconds": 7.0
+    },
+    {
+      "id": "well",
+      "frequency": 2,
+      "first_seen_seconds": 7.0
+    },
+    {
+      "id": "robot",
+      "frequency": 2,
+      "first_seen_seconds": 7.0
+    },
+    {
+      "id": "completing",
+      "frequency": 2,
+      "first_seen_seconds": 7.0
+    },
+    {
+      "id": "task",
+      "frequency": 2,
+      "first_seen_seconds": 7.0
+    },
+    {
+      "id": "correctly",
+      "frequency": 2,
+      "first_seen_seconds": 7.0
+    }
+  ],
+  "edges": [
+    {
+      "source": "agent",
+      "target": "describe",
+      "weight": 2
+    },
+    {
+      "source": "agent",
+      "target": "intelligent",
+      "weight": 2
+    },
+    {
+      "source": "agent",
+      "target": "works",
+      "weight": 4
+    },
+    {
+      "source": "agent",
+      "target": "check",
+      "weight": 2
+    },
+    {
+      "source": "agent",
+      "target": "completing",
+      "weight": 2
+    },
+    {
+      "source": "agent",
+      "target": "correctly",
+      "weight": 2
+    },
+    {
+      "source": "agent",
+      "target": "doing",
+      "weight": 2
+    },
+    {
+      "source": "agent",
+      "target": "job",
+      "weight": 2
+    },
+    {
+      "source": "agent",
+      "target": "like",
+      "weight": 6
+    },
+    {
+      "source": "agent",
+      "target": "means",
+      "weight": 4
+    },
+    {
+      "source": "agent",
+      "target": "performance",
+      "weight": 2
+    },
+    {
+      "source": "agent",
+      "target": "robot",
+      "weight": 2
+    },
+    {
+      "source": "agent",
+      "target": "task",
+      "weight": 2
+    },
+    {
+      "source": "agent",
+      "target": "well",
+      "weight": 2
+    },
+    {
+      "source": "agent",
+      "target": "environment",
+      "weight": 2
+    },
+    {
+      "source": "agent",
+      "target": "actuators",
+      "weight": 2
+    },
+    {
+      "source": "agent",
+      "target": "help",
+      "weight": 4
+    },
+    {
+      "source": "agent",
+      "target": "sensors",
+      "weight": 2
+    },
+    {
+      "source": "sensors",
+      "target": "actuators",
+      "weight": 2
+    },
+    {
+      "source": "sensors",
+      "target": "environment",
+      "weight": 2
+    },
+    {
+      "source": "sensors",
+      "target": "performance",
+      "weight": 2
+    },
+    {
+      "source": "sensors",
+      "target": "stands",
+      "weight": 2
+    },
+    {
+      "source": "sensors",
+      "target": "help",
+      "weight": 2
+    },
+    {
+      "source": "sensors",
+      "target": "like",
+      "weight": 2
+    },
+    {
+      "source": "like",
+      "target": "check",
+      "weight": 2
+    },
+    {
+      "source": "like",
+      "target": "completing",
+      "weight": 2
+    },
+    {
+      "source": "like",
+      "target": "correctly",
+      "weight": 2
+    },
+    {
+      "source": "like",
+      "target": "doing",
+      "weight": 2
+    },
+    {
+      "source": "like",
+      "target": "job",
+      "weight": 2
+    },
+    {
+      "source": "like",
+      "target": "means",
+      "weight": 2
+    },
+    {
+      "source": "like",
+      "target": "performance",
+      "weight": 2
+    },
+    {
+      "source": "like",
+      "target": "robot",
+      "weight": 2
+    },
+    {
+      "source": "like",
+      "target": "task",
+      "weight": 2
+    },
+    {
+      "source": "like",
+      "target": "well",
+      "weight": 2
+    },
+    {
+      "source": "like",
+      "target": "actuators",
+      "weight": 2
+    },
+    {
+      "source": "like",
+      "target": "help",
+      "weight": 4
+    },
+    {
+      "source": "performance",
+      "target": "actuators",
+      "weight": 2
+    },
+    {
+      "source": "performance",
+      "target": "environment",
+      "weight": 2
+    },
+    {
+      "source": "performance",
+      "target": "stands",
+      "weight": 3
+    },
+    {
+      "source": "performance",
+      "target": "check",
+      "weight": 2
+    },
+    {
+      "source": "performance",
+      "target": "completing",
+      "weight": 2
+    },
+    {
+      "source": "performance",
+      "target": "correctly",
+      "weight": 2
+    },
+    {
+      "source": "performance",
+      "target": "doing",
+      "weight": 2
+    },
+    {
+      "source": "performance",
+      "target": "job",
+      "weight": 2
+    },
+    {
+      "source": "performance",
+      "target": "means",
+      "weight": 2
+    },
+    {
+      "source": "performance",
+      "target": "robot",
+      "weight": 2
+    },
+    {
+      "source": "performance",
+      "target": "task",
+      "weight": 2
+    },
+    {
+      "source": "performance",
+      "target": "well",
+      "weight": 2
+    },
+    {
+      "source": "environment",
+      "target": "actuators",
+      "weight": 2
+    },
+    {
+      "source": "environment",
+      "target": "stands",
+      "weight": 2
+    },
+    {
+      "source": "environment",
+      "target": "means",
+      "weight": 2
+    },
+    {
+      "source": "environment",
+      "target": "works",
+      "weight": 2
+    },
+    {
+      "source": "actuators",
+      "target": "stands",
+      "weight": 2
+    },
+    {
+      "source": "actuators",
+      "target": "help",
+      "weight": 2
+    },
+    {
+      "source": "works",
+      "target": "describe",
+      "weight": 2
+    },
+    {
+      "source": "works",
+      "target": "intelligent",
+      "weight": 2
+    },
+    {
+      "source": "works",
+      "target": "means",
+      "weight": 2
+    },
+    {
+      "source": "means",
+      "target": "check",
+      "weight": 2
+    },
+    {
+      "source": "means",
+      "target": "completing",
+      "weight": 2
+    },
+    {
+      "source": "means",
+      "target": "correctly",
+      "weight": 2
+    },
+    {
+      "source": "means",
+      "target": "doing",
+      "weight": 2
+    },
+    {
+      "source": "means",
+      "target": "job",
+      "weight": 2
+    },
+    {
+      "source": "means",
+      "target": "robot",
+      "weight": 2
+    },
+    {
+      "source": "means",
+      "target": "task",
+      "weight": 2
+    },
+    {
+      "source": "means",
+      "target": "well",
+      "weight": 2
+    },
+    {
+      "source": "describe",
+      "target": "intelligent",
+      "weight": 2
+    },
+    {
+      "source": "check",
+      "target": "completing",
+      "weight": 2
+    },
+    {
+      "source": "check",
+      "target": "correctly",
+      "weight": 2
+    },
+    {
+      "source": "check",
+      "target": "doing",
+      "weight": 2
+    },
+    {
+      "source": "check",
+      "target": "job",
+      "weight": 2
+    },
+    {
+      "source": "check",
+      "target": "robot",
+      "weight": 2
+    },
+    {
+      "source": "check",
+      "target": "task",
+      "weight": 2
+    },
+    {
+      "source": "check",
+      "target": "well",
+      "weight": 2
+    },
+    {
+      "source": "doing",
+      "target": "completing",
+      "weight": 2
+    },
+    {
+      "source": "doing",
+      "target": "correctly",
+      "weight": 2
+    },
+    {
+      "source": "doing",
+      "target": "job",
+      "weight": 2
+    },
+    {
+      "source": "doing",
+      "target": "robot",
+      "weight": 2
+    },
+    {
+      "source": "doing",
+      "target": "task",
+      "weight": 2
+    },
+    {
+      "source": "doing",
+      "target": "well",
+      "weight": 2
+    },
+    {
+      "source": "job",
+      "target": "completing",
+      "weight": 2
+    },
+    {
+      "source": "job",
+      "target": "correctly",
+      "weight": 2
+    },
+    {
+      "source": "job",
+      "target": "robot",
+      "weight": 2
+    },
+    {
+      "source": "job",
+      "target": "task",
+      "weight": 2
+    },
+    {
+      "source": "job",
+      "target": "well",
+      "weight": 2
+    },
+    {
+      "source": "well",
+      "target": "completing",
+      "weight": 2
+    },
+    {
+      "source": "well",
+      "target": "correctly",
+      "weight": 2
+    },
+    {
+      "source": "well",
+      "target": "robot",
+      "weight": 2
+    },
+    {
+      "source": "well",
+      "target": "task",
+      "weight": 2
+    },
+    {
+      "source": "robot",
+      "target": "completing",
+      "weight": 2
+    },
+    {
+      "source": "robot",
+      "target": "correctly",
+      "weight": 2
+    },
+    {
+      "source": "robot",
+      "target": "task",
+      "weight": 2
+    },
+    {
+      "source": "completing",
+      "target": "correctly",
+      "weight": 2
+    },
+    {
+      "source": "completing",
+      "target": "task",
+      "weight": 2
+    },
+    {
+      "source": "task",
+      "target": "correctly",
+      "weight": 2
+    }
+  ]
+}

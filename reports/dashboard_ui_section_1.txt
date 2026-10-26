@@ -1,0 +1,201 @@
+# ------------------------- User interface -------------------------
+
+st.title("🎓 EduVision AI")
+st.caption("Video-grounded lecture intelligence and personalized learning")
+
+with st.sidebar:
+    st.header("Project status")
+    st.write("Transcription: faster-whisper")
+    st.write("Semantic search: Sentence Transformers + FAISS")
+    st.write("Frames and OCR: OpenCV + Tesseract")
+    st.write("Concepts: NetworkX")
+    st.write("Storage: local JSON, images, and FAISS indexes")
+    st.warning(
+        "Local prototype. Code execution is not isolated securely; "
+        "only run code you trust."
+    )
+
+st.header("1. Upload a lecture")
+upload = st.file_uploader(
+    "Choose a lecture video",
+    type=["mp4", "mov", "mkv", "webm"],
+)
+if upload is not None:
+    st.video(upload)
+    st.write(f"Size: {upload.size / (1024 * 1024):.2f} MB")
+    if upload.size == 0:
+        st.error("This file is empty.")
+    elif upload.size > 500 * 1024 * 1024:
+        st.error("Maximum upload size is 500 MB.")
+    elif st.button("Save lecture", type="primary"):
+        lecture_id = uuid.uuid4().hex[:12]
+        extension = Path(upload.name).suffix.lower()
+        video_path = DIRS["uploads"] / f"{lecture_id}{extension}"
+        video_path.write_bytes(upload.getvalue())
+        lecture = {
+            "lecture_id": lecture_id,
+            "original_filename": upload.name,
+            "video_path": str(video_path),
+            "status": "uploaded",
+            "created_at": datetime.now().isoformat(timespec="seconds"),
+        }
+        write_json(lecture_path(lecture_id), lecture)
+        st.session_state["lecture_id"] = lecture_id
+        st.success(f"Saved lecture: {lecture_id}")
+        st.rerun()
+
+lectures = get_lectures()
+st.divider()
+st.header("2. Select and process a lecture")
+
+if not lectures:
+    st.info("Save a lecture above to begin.")
+    st.stop()
+
+labels = {
+    f"{x['original_filename']} — {x['lecture_id']} [{x.get('status', 'uploaded')}]":
+    x["lecture_id"] for x in lectures
+}
+label_list = list(labels.keys())
+saved_id = st.session_state.get("lecture_id")
+selected_index = next(
+    (i for i, label in enumerate(label_list) if labels[label] == saved_id), 0
+)
+selected_label = st.selectbox("Saved lectures", label_list, index=selected_index)
+lecture_id = labels[selected_label]
+lecture = next(x for x in lectures if x["lecture_id"] == lecture_id)
+
+col1, col2, col3 = st.columns(3)
+col1.metric("Status", lecture.get("status", "uploaded"))
+col2.metric("Transcript segments", lecture.get("transcript_segments", 0))
+col3.metric("Whiteboard OCR items", lecture.get("whiteboard_items", 0))
+
+st.video(lecture["video_path"])
+
+if st.button("🚀 Process full lecture", type="primary"):
+    try:
+        with st.status("Processing the actual uploaded lecture...", expanded=True) as status:
+            st.write("Extracting audio and transcribing speech...")
+            st.write("Building the per-lecture FAISS index...")
+            st.write("Sampling video frames and extracting visible text...")
+            st.write("Building concept graph and quiz...")
+            updated = process_lecture(lecture)
+            status.update(label="Lecture processing completed", state="complete")
+        st.success(
+            f"Processed {updated['transcript_segments']} transcript segments."
+        )
+        st.rerun()
+    except Exception as exc:
+        lecture["status"] = "error"
+        lecture["last_error"] = str(exc)
+        write_json(lecture_path(lecture_id), lecture)
+        st.error(f"Processing failed: {exc}")
+        st.info(
+            "The terminal may contain additional details. "
+            "Fix the reported issue and retry."
+        )
+
+transcript = load_transcript(lecture_id)
+transcript_ready = bool(transcript)
+index_ready = (DIRS["indexes"] / f"{lecture_id}.faiss").exists()
+board_records = read_json(
+    DIRS["whiteboards"] / lecture_id / "whiteboards.json", []
+)
+quiz_questions = read_json(DIRS["quizzes"] / f"{lecture_id}.json", [])
+
+st.divider()
+st.header("3. EduVision AI workspace")
+tab_transcript, tab_search, tab_board, tab_code, tab_graph, tab_quiz, tab_analytics = st.tabs([
+    "Transcript", "FAISS Search", "Whiteboard AI", "Code Lab",
+    "Concept Graph", "Quiz", "Learning Analytics"
+])
+
+with tab_transcript:
+    st.subheader("Speaker-labelled timestamped transcript")
+    if transcript_ready:
+        query = st.text_input("Filter transcript", key="transcript_filter")
+        speaker_names = sorted(set(
+            seg.get("speaker", "Unknown") for seg in transcript
+        ))
+        speaker_filter = st.selectbox(
+            "Speaker filter", ["All speakers"] + speaker_names
+        )
+        for seg in transcript:
+            if query.lower() not in seg["text"].lower():
+                continue
+            if speaker_filter != "All speakers" and seg.get("speaker") != speaker_filter:
+                continue
+            st.markdown(
+                f"**[{timestamp(seg['start'])} – {timestamp(seg['end'])}]** "
+                f"**{seg.get('speaker', 'Unknown')}**"
+            )
+            st.write(seg["text"])
+    else:
+        st.info("Process this lecture to generate a real transcript.")
+
+with tab_search:
+    st.subheader("Timestamp-based semantic search")
+    st.caption("Search uses embeddings and a lecture-specific FAISS index.")
+    search_query = st.text_input(
+        "Ask a question about this lecture",
+        placeholder="What does the professor explain about ...?",
+        key="semantic_query",
+    )
+    top_k = st.slider("Results", 1, 10, 5)
+    if st.button("Search lecture"):
+        if not index_ready:
+            st.warning("Process the lecture first to build its index.")
+        elif not search_query.strip():
+            st.warning("Enter a question.")
+        else:
+            try:
+                results = search_lecture(lecture_id, search_query, top_k)
+                for result in results:
+                    with st.container(border=True):
+                        st.markdown(
+                            f"**[{timestamp(result['start'])}]** "
+                            f"Relevance score: `{result['score']:.3f}`"
+                        )
+                        st.write(result["text"])
+                        st.caption(
+                            f"Segment ends at {timestamp(result['end'])}"
+                        )
+            except Exception as exc:
+                st.error(f"Search failed: {exc}")
+
+    st.markdown("**Evaluation queries**")
+    st.write(
+        "Enter ten questions grounded in this lecture and verify each returned "
+        "timestamp against the video. Search results are candidates, not "
+        "guaranteed correct answers."
+    )
+    eval_text = st.text_area(
+        "One question per line (up to 10)",
+        placeholder="What is the main definition?\nWhich steps did the professor explain?",
+    )
+    if st.button("Run 10-query evaluation"):
+        questions = [q.strip() for q in eval_text.splitlines() if q.strip()][:10]
+        if not index_ready:
+            st.warning("Process the lecture first.")
+        elif not questions:
+            st.warning("Enter at least one question.")
+        else:
+            rows = []
+            for question in questions:
+                results = search_lecture(lecture_id, question, 1)
+                best = results[0] if results else {}
+                rows.append({
+                    "question": question,
+                    "predicted_timestamp": timestamp(best.get("start", 0)),
+                    "retrieved_text": best.get("text", ""),
+                    "relevance_score": best.get("score", 0),
+                    "human_verified_correct": None,
+                })
+            st.dataframe(pd.DataFrame(rows), use_container_width=True)
+            st.download_button(
+                "Download query evaluation CSV",
+                pd.DataFrame(rows).to_csv(index=False),
+                file_name=f"{lecture_id}_query_evaluation.csv",
+                mime="text/csv",
+            )
+

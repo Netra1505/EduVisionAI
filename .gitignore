@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Secrets
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# Local data and uploaded videos
+data/uploads/
+data/processed/
+data/cache/
+
+# Model and index files
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.faiss
+
+# Logs and temporary files
+*.log
+.DS_Store
+Thumbs.db
+
+# Generated lecture-processing data
+data/audio/
+data/frames/
+data/transcripts/
+data/indexes/
+data/whiteboards/
+data/analytics/
+data/lectures/
+
+# Generated application results
+data/attempts/
+data/quizzes/
+data/reports/
+data/*.db
+data/*.sqlite
+data/*.sqlite3

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "4ebdd3da220e",
+    "question": "Complete the sentence: P stands for ________, environment, actuators, and sensors.",
+    "answer": "performance",
+    "concept": "performance",
+    "source_start": 0.0,
+    "source_end": 4.0,
+    "type": "fill_in_the_blank"
+  },
+  {
+    "id": "5ad3dcec0325",
+    "question": "Complete the sentence: It is used to describe how an ________ agent works.",
+    "answer": "intelligent",
+    "concept": "intelligent",
+    "source_start": 4.0,
+    "source_end": 7.0,
+    "type": "fill_in_the_blank"
+  },
+  {
+    "id": "c4c4c5897fa3",
+    "question": "Complete the sentence: ________ means how we check if the agent is doing its job well, like a robot completing its task correctly.",
+    "answer": "Performance",
+    "concept": "performance",
+    "source_start": 7.0,
+    "source_end": 13.0,
+    "type": "fill_in_the_blank"
+  },
+  {
+    "id": "c7c597514b2d",
+    "question": "Complete the sentence: ________ means the place where the agent works, such as a road, room, or game.",
+    "answer": "Environment",
+    "concept": "environment",
+    "source_start": 13.0,
+    "source_end": 18.0,
+    "type": "fill_in_the_blank"
+  },
+  {
+    "id": "ee10a47cd9b6",
+    "question": "Complete the sentence: ________ are the parts that help the agent take action, like wheels, arms, or speakers.",
+    "answer": "Actuators",
+    "concept": "actuators",
+    "source_start": 18.0,
+    "source_end": 24.0,
+    "type": "fill_in_the_blank"
+  },
+  {
+    "id": "094c1c59d6be",
+    "question": "Complete the sentence: Sensors help the agent observe or understand what's happening around it, like cameras, ________, or touch sensors.",
+    "answer": "microphones",
+    "concept": "microphones",
+    "source_start": 24.0,
+    "source_end": 31.0,
+    "type": "fill_in_the_blank"
+  },
+  {
+    "id": "a506e47519b0",
+    "question": "Complete the sentence: ________, P's helps us clearly define what an agent sees, does, and how it performs in its world.",
+    "answer": "Together",
+    "concept": "together",
+    "source_start": 31.0,
+    "source_end": 37.0,
+    "type": "fill_in_the_blank"
+  },
+  {
+    "id": "57766d52407b",
+    "question": "Complete the sentence: P's stands for ________, environment, actuators, and sensors.",
+    "answer": "performance",
+    "concept": "performance",
+    "source_start": 37.0,
+    "source_end": 42.0,
+    "type": "fill_in_the_blank"
+  }
+]
